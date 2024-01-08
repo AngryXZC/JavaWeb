@@ -1,3 +1,52 @@
 ## JavaWeb整理
 ### 记录JavaWeb(JSP+Servlet)的学习过程
+#### 关于tomcat的一些知识点
 1. JavaWeb的程序是运行在Tomcat这个Web容器里面的
+2. Tomcat是一个Web容器，它的作用是用来运行JavaWeb程序的
+3. Tomcat是一个Web服务器，它的作用是用来处理HTTP协议的请求的
+4. Tomcat是一个Servlet容器，它的作用是用来运行Servlet程序的
+5. Tomcat是一个JSP容器，它的作用是用来运行JSP程序的
+6. Tomcat是一个J2EE容器，它的作用是用来运行J2EE程序的
+7. Tomcat是一个Servlet/JSP容器，它的作用是用来运行Servlet/JSP程序的
+#### JSP的九大内置对象
+1. request：请求对象，代表客户端的请求，包含了请求的信息
+2. response：响应对象，代表服务器的响应，包含了响应的信息
+3. session：会话对象，代表客户端和服务器的一次会话，一次会话中有多次请求和响应
+4. application：代表当前的Web应用，一般用来保存全局的数据
+5. out：输出对象，用来输出数据的
+6. config：配置对象，代表当前JSP的配置
+7. page：当前页面本身（相当于Java中的this）
+8. pageContext：代表当前页面，可以获取其他八个内置对象
+9. exception：异常对象，代表当前页面出现的异常
+#### Servlet的生命周期
+1. Servlet的生命周期：从Servlet被创建到Servlet被销毁的过程
+2. Servlet的生命周期由服务器来管理
+3. Servlet的生命周期中有三个方法：init()、service()、destroy()
+4. init()：在Servlet被创建时执行，只执行一次，用来加载资源
+5. service()：每次请求Servlet时执行，执行多次，用来处理请求
+6. destroy()：在Servlet被销毁时执行，只执行一次，用来释放资源
+7. Servlet的生命周期中只有service()方法是必须执行的，其他两个方法不是必须执行的
+8. Servlet的生命周期中只有init()方法和destroy()方法是只执行一次的，service()方法是执行多次的
+#### Servlet的三种创建方式
+1. 实现Servlet接口
+2. 继承GenericServlet类
+3. 继承HttpServlet类
+#### Servlet的配置
+1. Servlet的配置有两种方式：注解配置和web.xml配置
+2. 注解配置：在Servlet的类上面使用@WebServlet注解来配置Servlet
+3. web.xml配置：在web.xml文件中使用<servlet>和<servlet-mapping>标签来配置Servlet
+#### 重定向和转发
+1. 重定向：response.sendRedirect("index.jsp");
+2. 转发：request.getRequestDispatcher("index.jsp").forward(request, response);
+3. 重定向和转发的区别：
+    1. 重定向是两次请求，转发是一次请求
+    2. 重定向可以访问其他站点的资源，转发只能访问当前站点的资源
+    3. 重定向可以访问WEB-INF目录下的资源，转发不能访问WEB-INF目录下的资源
+    4. 重定向可以访问任意类型的资源，转发只能访问Servlet和JSP资源
+### 关于JavaWeb其他的总结
+#### jar包引用和配置文件(web.xml)的创建
+1. jar包的引用有两种方式：本地引用和网络引用
+2. 本地引用：将jar包放到WEB-INF/lib目录下
+3. 网络引用：将jar包放到WEB-INF/lib目录下，然后在项目中右键选择Build Path->Configure Build Path->Libraries->Add JARs...->选择jar包->Apply and Close
+4. 配置文件的创建：在WEB-INF目录下创建web.xml文件
+

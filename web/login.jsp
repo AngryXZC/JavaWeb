@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%
 Object o = session.getAttribute("user");
 if(o!=null){
@@ -17,13 +16,18 @@ if(o!=null){
 }
 %>
 <%
-Object o2 = application.getAttribute("userNumber");
-if(o2!=null){
-	out.println("当前登录用户："+o2+"个!<br/>");
-}
+Object msg = request.getAttribute("message");
+if(msg!=null)
+	out.println(msg);
 %>
 
-<a href="login.jsp">登录</a> <a href="register.jsp">注册</a> 
+登录 
+<hr/>
+<form action="login_do.jsp" method="post">
+用户名：<input type="text" name="username" /><br/>
+密码：<input type="password" name="password" /><br/>
+<input type="submit" value="登录" />
+</form>
 
 </body>
 </html>
