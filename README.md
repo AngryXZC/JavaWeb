@@ -177,6 +177,44 @@
    10. `<c:url>`：用来获取URL的
    11. `<c:param>`：用来设置参数的
    12. `<c:catch>`：用来捕获异常的
+#### JSON的使用
+1. JSON：JavaScript Object Notation，JavaScript对象表示法，用来存储数据的
+2. JSON的使用：
+   1. 引入JSON的jar包
+   2. 使用JSONObject和JSONArray来存储数据
+   3. JSONObject：用来存储对象的
+   4. JSONArray：用来存储数组的
+   5. JSONObject和JSONArray的使用：
+      1. JSONObject：JSONObject json = new JSONObject();
+      2. JSONArray：JSONArray jsonArray = new JSONArray();
+   6. JSONObject和JSONArray的常用方法：
+      1. put()：向JSONObject和JSONArray中存储数据
+      2. get()：从JSONObject和JSONArray中获取数据
+      3. remove()：从JSONObject和JSONArray中移除数据
+      4. toString()：将JSONObject和JSONArray转换成字符串
+      5. toJSONObject()：将字符串转换成JSONObject
+      6. toJSONArray()：将字符串转换成JSONArray
+      7. getJSONObject()：从JSONArray中获取JSONObject
+      8. getJSONArray()：从JSONObject中获取JSONArray
+      9. length()：获取JSONArray的长度
+      10. keys()：获取JSONObject的键
+      11. values()：获取JSONObject的值
+      12. iterator()：获取JSONObject的迭代器
+      13. getNames()：获取JSONObject的键
+      14. getBoolean()：获取JSONObject的布尔值
+      15. getDouble()：获取JSONObject的双精度浮点数
+      16. getInt()：获取JSONObject的整数
+      17. getLong()：获取JSONObject的长整数
+      18. getString()：获取JSONObject的字符串
+      19. getJSONObject()：获取JSONObject的JSONObject
+      20. getJSONArray()：获取JSONObject的JSONArray
+      21. getBoolean()：获取JSONArray的布尔值
+      22. getDouble()：获取JSONArray的双精度浮点数
+      23. getInt()：获取JSONArray的整数
+      24. getLong()：获取JSONArray的长整数
+      25. getString()：获取JSONArray的字符串
+      26. getJSONObject()：获取JSONArray的JSONObject
+      27. getJSONArray()：获取JSONArray的JSONArray
 #### ajax的使用
 1. ajax：Asynchronous JavaScript and XML，异步的JavaScript和XML
 2. ajax的使用：
@@ -237,3 +275,36 @@
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xhr.send("name=zhangsan");
           ```
+5. ajax的优缺点：
+   1. 优点：
+      1. 不需要刷新页面就可以获取数据
+      2. 提高了用户的体验
+   2. 缺点：
+      1. 增加了服务器的压力
+      2. 不利于SEO搜索引擎优化
+#### 过滤器(filter)的使用:
+1. 过滤器：Filter，用来过滤请求和响应的
+2. 过滤器的使用：
+   1. 创建过滤器类：实现Filter接口
+   2. 重写过滤器的方法：init()、doFilter()、destroy()
+   3. 配置过滤器：在web.xml文件中使用<filter>和<filter-mapping>标签来配置过滤器
+   4. 过滤器的生命周期：从服务器启动到服务器关闭
+   5. 过滤器的生命周期由服务器来管理
+   6. 过滤器的生命周期中有三个方法：init()、doFilter()、destroy()
+   7. init()：在过滤器被创建时执行，只执行一次，用来加载资源
+   8. doFilter()：每次请求过滤器时执行，执行多次，用来过滤请求和响应
+   9. destroy()：在过滤器被销毁时执行，只执行一次，用来释放资源
+3. 过滤器的配置：
+   1. 注解配置：在过滤器的类上面使用@WebFilter注解来配置过滤器
+   2. web.xml配置：在web.xml文件中使用<filter>和<filter-mapping>标签来配置过滤器
+4. 过滤器的执行顺序：
+   1. 如果有多个过滤器，过滤器的执行顺序由过滤器的名称决定
+   2. 过滤器的名称按照字典顺序来执行
+   3. 过滤器的名称在web.xml文件中配置（依据配置顺序执行）
+5. 过滤器的初始化参数：
+    1. 在web.xml文件中使用<init-param>标签来配置过滤器的初始化参数
+    2. 在过滤器中使用FilterConfig对象来获取过滤器的初始化参数
+    3. FilterConfig对象的获取方式：
+        1. 在过滤器的init()方法中获取：`FilterConfig filterConfig = filterConfig;`
+        2. 在过滤器的doFilter()方法中获取：`FilterConfig filterConfig = filterConfig;`
+

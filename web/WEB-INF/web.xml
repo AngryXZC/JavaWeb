@@ -3,6 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
 <!--    <servlet>-->
 <!--        <servlet-name>LoginServlet</servlet-name>-->
 <!--        <servlet-class>com.xzc.controller.LoginServlet</servlet-class>-->
@@ -19,4 +27,39 @@
 <!--        <servlet-name>RegisterServlet</servlet-name>-->
 <!--        <url-pattern>/register_do</url-pattern>-->
 <!--    </servlet-mapping>-->
+
+
+    <filter>
+        <filter-name>EncodeFilter</filter-name>
+        <filter-class>com.xzc.filter.EncodeFilter</filter-class>
+        <init-param>
+            <param-name>Encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.xzc.filter.AdminFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>DispatcherFilter</filter-name>
+        <filter-class>com.xzc.filter.DispatcherFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>DispatcherFilter</filter-name>
+        <url-pattern>/dispatcher1.jsp</url-pattern>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/dispatcher1.jsp</location>-->
+<!--    </error-page>-->
 </web-app>
