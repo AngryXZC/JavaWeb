@@ -307,4 +307,11 @@
     3. FilterConfig对象的获取方式：
         1. 在过滤器的init()方法中获取：`FilterConfig filterConfig = filterConfig;`
         2. 在过滤器的doFilter()方法中获取：`FilterConfig filterConfig = filterConfig;`
-
+6. 过滤器配置DispathcerType：
+    1. 在web.xml文件中使用<dispatcher>标签来配置过滤器的DispathcerType
+    2. DispathcerType的取值：
+        1. REQUEST：默认值，只有客户端的请求会被过滤
+        2. FORWARD：转发的请求会被过滤
+        3. INCLUDE：包含的请求会被过滤
+        4. ERROR：错误的请求会被过滤
+        5. ASYNC：异步的请求会被过滤

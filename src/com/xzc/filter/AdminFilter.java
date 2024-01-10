@@ -28,12 +28,12 @@ public class AdminFilter implements Filter{
 		HttpServletRequest httpReq = (HttpServletRequest) req;
 		HttpServletResponse httpResp = (HttpServletResponse) resp;
 		Object o = httpReq.getSession().getAttribute("user");
-		if(o==null) {
+		if(o==null) {//没有登录
 			httpResp.sendRedirect(httpReq.getContextPath()+"/index.jsp");
-		}else {
+		}else {//当前已经登录
 			User u = (User) o;
-			if(u.isAdmin()) {
-				chain.doFilter(req, resp);//����
+			if(u.isAdmin()) {//是管理员
+				chain.doFilter(req, resp);//放行
 			}else {
 				httpResp.sendRedirect(httpReq.getContextPath()+"/index.jsp");
 			}
