@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 public class AjaxServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		System.out.println("�յ���ajax����:"+req.getParameter("data"));
+		System.out.println("收到了Ajax请求:"+req.getParameter("data"));
 		resp.setContentType("text/html; charset=utf-8");
-		resp.getWriter().append("��������");
+		resp.getWriter().append("服务器返回的数据!");
 	}
 }

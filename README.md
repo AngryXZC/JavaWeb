@@ -177,4 +177,63 @@
    10. `<c:url>`：用来获取URL的
    11. `<c:param>`：用来设置参数的
    12. `<c:catch>`：用来捕获异常的
+#### ajax的使用
+1. ajax：Asynchronous JavaScript and XML，异步的JavaScript和XML
+2. ajax的使用：
+   1. 创建XMLHttpRequest对象：var xhr = new XMLHttpRequest();
+   2. 设置回调函数：xhr.onreadystatechange = function(){}
+   3. 打开连接：xhr.open("GET","/ajaxServlet?name=zhangsan",true);
+   4. 发送请求：xhr.send();
+   5. 获取响应数据：xhr.responseText
+3. 不需要刷新页面就可以获取数据
+   1. 优点：提高了用户的体验
+   2. 缺点：增加了服务器的压力
+4. 发起ajax请求的方式：
+   1. jQuery的ajax方法：
+      1. get方法：
+        ```javaScript
+            $.ajax({
+              type:"GET",
+              url:"/ajaxServlet",
+              data:{name:"zhangsan"},
+              success:function(data){
+                  alert(data);
+              }
+            });
+         ```
+      2. post方法：
+        ```javaScript
+         $.ajax({
+              type:"POST",
+              url:"/ajaxServlet",
+              data:{name:"zhangsan"},
+              success:function(data){
+                  alert(data);
+              }
+            });
+        ```
+   2. 使用原生的XMLHttpRequest对象：
+      1. get方法：
 
+          ```javaScript
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function(){
+              if(xhr.readyState == 4 && xhr.status == 200){
+                  alert(xhr.responseText);
+              }
+          }
+          xhr.open("GET","/ajaxServlet?name=zhangsan",true);
+          xhr.send();
+          ```
+      2. post方法：
+         ```javaScript
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    alert(xhr.responseText);
+                }
+            }
+            xhr.open("POST","/ajaxServlet",true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.send("name=zhangsan");
+          ```
