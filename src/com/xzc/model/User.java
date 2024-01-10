@@ -1,6 +1,10 @@
 package com.xzc.model;
 
-public class User {
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+
+//public class User implements HttpSessionBindingListener {
+public class User  {
 	private String username;
 	private String password;
 	private int age;
@@ -44,4 +48,15 @@ public class User {
 		this.sex = sex;
 		this.isAdmin = isAdmin;
 	}
+//监听器：实现HttpSessionBindingListener接口
+//	@Override
+//	public void valueBound(HttpSessionBindingEvent arg0) {
+//		System.out.println("valueBound"+arg0.getName()+":"+arg0.getValue());
+//	}
+//
+//	@Override
+//	public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
+//		System.out.println("valueUnbound");
+//	}
+
 }

@@ -307,11 +307,33 @@
     3. FilterConfig对象的获取方式：
         1. 在过滤器的init()方法中获取：`FilterConfig filterConfig = filterConfig;`
         2. 在过滤器的doFilter()方法中获取：`FilterConfig filterConfig = filterConfig;`
-6. 过滤器配置DispathcerType：
-    1. 在web.xml文件中使用<dispatcher>标签来配置过滤器的DispathcerType
-    2. DispathcerType的取值：
-        1. REQUEST：默认值，只有客户端的请求会被过滤
-        2. FORWARD：转发的请求会被过滤
-        3. INCLUDE：包含的请求会被过滤
-        4. ERROR：错误的请求会被过滤
-        5. ASYNC：异步的请求会被过滤
+6. 过滤器配置DispatcherType：
+   1. 在web.xml文件中使用<dispatcher>标签来配置过滤器的DispathcerType
+   2. DispatcherType的取值：
+   3. REQUEST：默认值，只有客户端的请求会被过滤
+   4. FORWARD：转发的请求会被过滤
+   5. INCLUDE：包含的请求会被过滤
+   6. ERROR：错误的请求会被过滤
+   7. ASYNC：异步的请求会被过滤
+#### 监听器(listener)的使用
+1. 监听器：Listener，用来监听域对象的创建和销毁，以及域对象中属性的添加、移除和替换
+2. 可以监听的域对象：
+   1. ServletContext：代表当前的Web应用，一般用来保存全局的数据(application监听器)
+   2. HttpSession：代表客户端和服务器的一次会话，一次会话中有多次请求和响应
+   3. ServletRequest：代表客户端的请求，包含了请求的信息
+3. 可以统计在线人数；可以统计网站的访问量；可以统计网站的访问者；可以单点登录
+3. 监听器的使用：
+   1. 创建监听器类：实现Listener接口
+   2. 监听器的接口：
+      1. 监听创建：`ServletContextListener、HttpSessionListener、ServletRequestListener、`
+      2. 监听属性：`ServletContextAttributeListener、HttpSessionAttributeListener、ServletRequestAttributeListener`
+   3. 重写监听器的方法：contextInitialized()、contextDestroyed()、attributeAdded()、attributeRemoved()、attributeReplaced()
+   4. 配置监听器：在web.xml文件中使用<listener>标签来配置监听器
+   5. 监听器的生命周期：从服务器启动到服务器关闭
+   6. 监听器的生命周期由服务器来管理
+   7. 监听器的生命周期中有五个方法：contextInitialized()、contextDestroyed()、attributeAdded()、attributeRemoved()、attributeReplaced()
+   8. contextInitialized()：在监听器被创建时执行，只执行一次，用来加载资源
+   9. contextDestroyed()：在监听器被销毁时执行，只执行一次，用来释放资源
+   10. attributeAdded()：在域对象中添加属性时执行
+   11. attributeRemoved()：在域对象中移除属性时执行
+   12. attributeReplaced()：在域对象中替换属性时执行

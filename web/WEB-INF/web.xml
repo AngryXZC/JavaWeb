@@ -56,10 +56,16 @@
     <filter-mapping>
         <filter-name>DispatcherFilter</filter-name>
         <url-pattern>/dispatcher1.jsp</url-pattern>
-        <dispatcher>ERROR</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
-<!--    <error-page>-->
-<!--        <error-code>404</error-code>-->
-<!--        <location>/dispatcher1.jsp</location>-->
-<!--    </error-page>-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/dispatcher1.jsp</location>
+    </error-page>
+<!--    <listener>  &lt;!&ndash; session监听器 &ndash;&gt;-->
+<!--        <listener-class>com.xzc.listener.SessionListener</listener-class>-->
+<!--    </listener>-->
+    <session-config> <!-- session过期时间 -->
+        <session-timeout>1</session-timeout>
+    </session-config>
 </web-app>
