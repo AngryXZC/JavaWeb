@@ -62,7 +62,7 @@
 4. Controller：控制器，负责接收请求，调用模型，转发视图，由Servlet来实现
 5. MVC设计模式的好处：降低了耦合度，提高了代码的可维护性
 #### JAVAEE的三层架构
-1. web层：负责接收请求，调用业务逻辑层，转发视图
+1. web层：负责接收请求，调用业务逻辑层，转发视图（包含Controller层和View）
 2. service层：负责处理业务逻辑，调用数据访问层
 3. dao层：负责操作数据库
 4. 三层架构的好处：降低了耦合度，提高了代码的可维护性
@@ -162,7 +162,11 @@
    4. `<c:if>`：用来判断条件的：
         1. `<c:if test="${name == 'zhangsan'}">`
         2. `<c:if test="${name == 'zhangsan'}">`
-   5. `<c:choose>`：用来选择条件的
+   5. `<c:choose>`：用来选择条件的:
+        1. `<c:choose>`
+        2. `<c:when test="${name == 'zhangsan'}">`
+        3. `<c:otherwise>`
+        4. `</c:choose>`
    6. `<c:forEach>`：用来遍历集合的：
         1. `<c:forEach items="${list}" var="name">`
         2. `<c:forEach items="${list}" var="name" begin="0" end="5">`
