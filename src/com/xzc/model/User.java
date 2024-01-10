@@ -5,13 +5,7 @@ public class User {
 	private String password;
 	private int age;
 	private String sex;
-	public User(String username, String password, int age, String sex) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.age = age;
-		this.sex = sex;
-	}
+	private boolean isAdmin=false;
 	public String getUsername() {
 		return username;
 	}
@@ -36,6 +30,18 @@ public class User {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	
-	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	public User(String username, String password, int age, String sex, boolean isAdmin) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.age = age;
+		this.sex = sex;
+		this.isAdmin = isAdmin;
+	}
 }

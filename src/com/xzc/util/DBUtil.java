@@ -17,7 +17,7 @@ public class DBUtil {
 		if(db.containsKey(username)) {
 			return false;
 		}else {
-			User user = new User(username, password, age, sex);
+			User user = new User(username, password, age, sex,false);
 			db.put(username, user);
 			return true;
 		}
